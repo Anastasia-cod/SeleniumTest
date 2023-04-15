@@ -8,7 +8,7 @@ namespace SeleniumTest
     [TestFixture]
 
     public class CheckboxesTest
-	{
+    {
         WebDriver ChromeDriver { get; set; }
 
         [SetUp]
@@ -25,9 +25,7 @@ namespace SeleniumTest
             ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/checkboxes");
             IWebElement checkbox = ChromeDriver.FindElement(By.CssSelector("[type=checkbox]"));
 
-            var checkedAttribute = checkbox.GetAttribute("checked");
-
-            Assert.IsNull(checkedAttribute);            
+            Assert.IsFalse(checkbox.Selected);            
         }
 
         [Test]
@@ -37,9 +35,7 @@ namespace SeleniumTest
             IWebElement checkbox = ChromeDriver.FindElement(By.CssSelector("[type=checkbox]"));
             checkbox.Click();
 
-            var checkedAttribute = checkbox.GetAttribute("checked");
-
-            Assert.IsNotNull(checkedAttribute);
+            Assert.IsTrue(checkbox.Selected);
         }
 
         [Test]
