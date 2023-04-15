@@ -20,7 +20,7 @@ namespace SeleniumTest
         }
 
         [Test]
-        public void CheckCountOfElements()
+        public void CheckCountOfAddedElements()
         {
             ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/add_remove_elements/");
             IWebElement addElement = ChromeDriver.FindElement(By.XPath("//button[text()='Add Element']"));
@@ -35,9 +35,9 @@ namespace SeleniumTest
             var actualCount = addedElement.Count();
             var expectedCount = 1;
 
-            Assert.That(expectedCount, Is.EqualTo(actualCount), $"Actual added elements: {actualCount}, Expected added elements: {expectedCount}");           
+            Assert.That(actualCount, Is.EqualTo(expectedCount), $"Actual added elements: {actualCount}, Expected added elements: {expectedCount}");           
         }
-
+        
         [TearDown]
         public void TearDown()
         {
