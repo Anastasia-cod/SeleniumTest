@@ -26,7 +26,9 @@ namespace SeleniumTest
             var text = ChromeDriver.FindElement(By.XPath($"//p[2]"));
             var textActual = text.Text;
 
-            Assert.That(textActual, Is.EqualTo("Sometimes you'll see a typo, other times you won't."));
+            var expectedText = "Sometimes you'll see a typo, other times you won't.";
+
+            Assert.That(textActual, Is.EqualTo(expectedText));
         }
 
         [TearDown]
