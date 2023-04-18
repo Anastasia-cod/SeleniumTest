@@ -17,12 +17,12 @@ namespace SeleniumTest
             ChromeDriver = new ChromeDriver();
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/add_remove_elements/");
         }
 
         [Test]
         public void CheckCountOfAddedElements()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/add_remove_elements/");
             IWebElement addElement = ChromeDriver.FindElement(By.XPath("//button[text()='Add Element']"));
             addElement.Click();
             addElement.Click();

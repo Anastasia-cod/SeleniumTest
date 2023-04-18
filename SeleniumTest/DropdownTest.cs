@@ -18,12 +18,12 @@ namespace SeleniumTest
             ChromeDriver = new ChromeDriver();
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/dropdown");
         }
 
         [Test]
         public void CheckExsistingAllElementsInDropdown()
-        {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/dropdown");
+        {           
             IWebElement dropdown = ChromeDriver.FindElement(By.Id("dropdown"));
             dropdown.Click();
 
@@ -39,7 +39,6 @@ namespace SeleniumTest
         [Test]
         public void SelectFirstElementInDropdown()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/dropdown");
             IWebElement dropdown = ChromeDriver.FindElement(By.Id("dropdown"));
             dropdown.Click();
 
@@ -52,7 +51,6 @@ namespace SeleniumTest
         [Test]
         public void SelectSecondElementInDropdown()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/dropdown");
             IWebElement dropdown = ChromeDriver.FindElement(By.Id("dropdown"));
             dropdown.Click();
 

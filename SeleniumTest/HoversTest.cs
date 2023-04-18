@@ -18,13 +18,12 @@ namespace SeleniumTest
             ChromeDriver = new ChromeDriver();
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/hovers");
         }
 
         [Test]
         public void Hovers_CheckFirstUser()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/hovers");
-
             Actions action = new Actions(ChromeDriver);
             var firstUser = ChromeDriver.FindElement(By.ClassName("figure"));
             action.MoveToElement(firstUser).Build().Perform();
@@ -43,8 +42,6 @@ namespace SeleniumTest
         [Test]
         public void Hovers_CheckSecondUser()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/hovers");
-
             Actions action = new Actions(ChromeDriver);
             var allUser = ChromeDriver.FindElements(By.ClassName("figure"));
             var secondUser = allUser[1];
@@ -64,8 +61,6 @@ namespace SeleniumTest
         [Test]
         public void Hovers_CheckThirdUser()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/hovers");
-
             Actions action = new Actions(ChromeDriver);
             var allUser = ChromeDriver.FindElements(By.ClassName("figure"));
             var thirdUser = allUser[2];

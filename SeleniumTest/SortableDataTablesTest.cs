@@ -17,12 +17,12 @@ namespace SeleniumTest
             ChromeDriver = new ChromeDriver();
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/tables");
         }
 
         [Test]
         public void TableFirst_CheckThirdRowFirstCell()
-        {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/tables");
+        {           
             var thirdRowFirstCellValue = ChromeDriver.FindElement(By.XPath("//table//tr[3]//td[1]"));
             var actualValue = thirdRowFirstCellValue.Text;
 
@@ -34,7 +34,6 @@ namespace SeleniumTest
         [Test]
         public void TableFirst_CheckSecondRowThirdCell()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/tables");
             var secondRowThirdCellValue = ChromeDriver.FindElement(By.XPath("//table//tr[2]//td[3]"));
             var actualValue = secondRowThirdCellValue.Text;
 
@@ -46,7 +45,6 @@ namespace SeleniumTest
         [Test]
         public void TableSecond_CheckFourthRowFourthCell()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/tables");
             var fourthRowfourthCellValue = ChromeDriver.FindElement(By.XPath("//table[2]//tr[4]//td[4]"));
             var actualValue = fourthRowfourthCellValue.Text;
 
@@ -58,7 +56,6 @@ namespace SeleniumTest
         [Test]
         public void TableSecond_CheckFirstRowFifthCell()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/tables");
             var firstRowFifthCellValue = ChromeDriver.FindElement(By.XPath("//table[2]//tr[1]//td[5]"));
             var actualValue = firstRowFifthCellValue.Text;
 

@@ -17,12 +17,12 @@ namespace SeleniumTest
             ChromeDriver = new ChromeDriver();
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/inputs");
         }
 
         [Test]
         public void Inputs_CheckArrowUp()
-        {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/inputs");
+        {           
             IWebElement inputField = ChromeDriver.FindElement(By.TagName("input"));
             inputField.SendKeys(Keys.ArrowUp);
  
@@ -34,7 +34,6 @@ namespace SeleniumTest
         [Test]
         public void Inputs_CheckArrowDown()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/inputs");
             IWebElement inputField = ChromeDriver.FindElement(By.TagName("input"));
             inputField.SendKeys(Keys.ArrowDown);
             inputField.SendKeys(Keys.ArrowDown);
@@ -47,7 +46,6 @@ namespace SeleniumTest
         [Test]
         public void Inputs_CheckArrowUpAndDown()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/inputs");
             IWebElement inputField = ChromeDriver.FindElement(By.TagName("input"));
             inputField.SendKeys(Keys.ArrowUp);
             inputField.SendKeys(Keys.ArrowUp);
@@ -63,7 +61,6 @@ namespace SeleniumTest
         [Test]
         public void Inputs_CheckEnterZeroNumber()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/inputs");
             IWebElement inputField = ChromeDriver.FindElement(By.TagName("input"));
             inputField.SendKeys("0");
 
@@ -75,7 +72,6 @@ namespace SeleniumTest
         [Test]
         public void Inputs_CheckEnterNumber()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/inputs");
             IWebElement inputField = ChromeDriver.FindElement(By.TagName("input"));
             inputField.SendKeys("72500");
 
@@ -87,7 +83,6 @@ namespace SeleniumTest
         [Test]
         public void Inputs_CheckEnterLetters()
         {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/inputs");
             IWebElement inputField = ChromeDriver.FindElement(By.TagName("input"));
             inputField.SendKeys("test");
 

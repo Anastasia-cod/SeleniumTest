@@ -17,12 +17,12 @@ namespace SeleniumTest
             ChromeDriver = new ChromeDriver();
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/typos");
         }
 
         [Test]
         public void Typos_CheckSpelling()
-        {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/typos");
+        {            
             var text = ChromeDriver.FindElement(By.XPath($"//p[2]"));
             var textActual = text.Text;
 

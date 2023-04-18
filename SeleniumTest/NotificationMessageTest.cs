@@ -18,12 +18,12 @@ namespace SeleniumTest
             ChromeDriver = new ChromeDriver();
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/notification_message_rendered");
         }
 
         [Test]
         public void CheckNotificationMessage()
-        {
-            ChromeDriver.Navigate().GoToUrl("http://the-internet.herokuapp.com/notification_message_rendered");
+        {            
             var linkButton = ChromeDriver.FindElement(By.CssSelector(".example a"));
             linkButton.Click();
 
